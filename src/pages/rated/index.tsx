@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Header, Menu, Segment, Loader, Message } from "semantic-ui-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRatedMovies, fetchRatedTvShows } from "./query";

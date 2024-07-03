@@ -6,7 +6,7 @@ export const Navbar = () => {
     const [activeItem, setActiveItem] = useState("home"); // Initialize active item state
     const navigate = useNavigate();
 
-    const handleItemClick = (name) => {
+    const handleItemClick = (name: React.SetStateAction<string>) => {
         setActiveItem(name); // Update active item state
     };
 

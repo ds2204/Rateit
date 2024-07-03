@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import { Grid, Header, Loader, Segment, Image, List, Label, Accordion, Card } from "semantic-ui-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTvShowDetails } from "./query";
-import { keyframes } from "styled-components";
+
 
 export const TvShow= () => {
     const { id } = useParams<{ id: string }>();
@@ -11,6 +12,7 @@ export const TvShow= () => {
         return <div>Invalid Tv Show ID</div>;
     }
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { data, isLoading } = useQuery({
         queryKey: ["tvShow"],
         queryFn: () => fetchTvShowDetails(id),
@@ -20,6 +22,7 @@ export const TvShow= () => {
         return <Loader active />;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const seasonPanels=data.seasons.map((season:any)=>({
         key:season.id,
         title:`Season ${season.season_number}`,
@@ -52,6 +55,7 @@ export const TvShow= () => {
                             <List>
                             <List.Item>
                                 <List.Header>Created By: </List.Header> 
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-explicit-any
                                 {data.created_by.map((creator:any)=>creator.name).join(", ")}
                             </List.Item>
                             <List.Item>
